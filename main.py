@@ -4,6 +4,9 @@ all_payment_list = enter.split()
 reza_payment = list()
 nima_payment = list()
 amir_payment = list()
+amir_sum = 0
+nima_sum = 0
+reza_sum = 0
 
 for name_pay in all_payment_list:
     if name_pay.startswith("r"):
@@ -38,12 +41,14 @@ for name, pay in payment_list.items():
         amir_sum = totalPaymentAmir - person_payment
     print(f"{name} Payment: {pay}")
 
-
-print(amir_sum, nima_sum, reza_sum)
 print(f"Total Payment: {totalPayment}")
-print(f"Person Payment: {person_payment}")
+print(f"Person Payment: {person_payment}\n\n")
 
+max_person = max(payment_list, key=payment_list.get)
 
-
-
-
+if max_person == "Nima":
+    print(f"To Nima:\n Reza=> {(-1 * reza_sum)} | Amir=> {(-1 * amir_sum)}")
+elif max_person == "Reza":
+    print(f"To Reza:\n Nima=> {(-1 * nima_sum)} | Amir=> {(-1 * amir_sum)}")
+elif max_person == "Amir":
+    print(f"To Amir:\n Reza=> {(-1 * reza_sum)} | Nima=> {(-1 * nima_sum)}")
